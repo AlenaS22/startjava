@@ -1,15 +1,16 @@
 public class Variable {
     public static void main(String[] args) {
         byte core = 2;
-        short proc = 4;
-        int RAM = 8;
+        short cpu = 4;
+        int ram = 8;
         long verOfBoard = 1;
         float frequency = 2.3f;
-        double verOfSMBIOS = 3.1d;
+        double verOfSmbios = 3.1d;
         char type = 'i';
-        boolean security = true;
-        System.out.println(core + "\n" + proc + "\n" + RAM + "\n" +
-            verOfBoard + "\n" + frequency + "\n" + verOfSMBIOS +
-            "\n" + type + "\n" + security);
+        boolean secure = true;
+
+        System.out.println(core + "\n" + cpu + "\n" + ram + "\n" +
+            verOfBoard + "\n" + frequency + "\n" + verOfSmbios +
+            "\n" + type + "\n" + secure);
     }
 }
