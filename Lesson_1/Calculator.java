@@ -22,7 +22,6 @@ public class Calculator {
         } else {
             result = number1 % number2;
         }
-        
         System.out.println(result);
     }
 }
