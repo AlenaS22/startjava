@@ -7,7 +7,7 @@ public class MyFirstGame {
             if(valueOfGamer < valueOfComputer) {
                 System.out.println("Введенное вами число " + valueOfGamer +
                 " меньше того, что загадал компьютер");
-                valueOfGamer+=2;
+                valueOfGamer += 2;
             } else {
                 System.out.println("Введенное вами число " + valueOfGamer +
                 " больше того, что загадал компьютер");
