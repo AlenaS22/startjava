@@ -1,9 +1,6 @@
 public class Unicode {
-    public static void main (String[] args) {
-        char symbol;
-
-        for(char i = 33; i < 127; i++) {
-            symbol = i;
+    public static void main(String[] args) {
+        for(char symbol = 33; symbol < 127; symbol++) {
             System.out.println((int) symbol + ". " + symbol);
         }
     }
