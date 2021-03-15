@@ -14,9 +14,8 @@ public class Calculator {
         } else if(operation == '/') {
             result = 1.0 * number1 / number2;
         } else if(operation == '^') {
-            int pow = 5;
             result = number1;
-            for(int i = 0; i < pow - 1; i++) {
+            for(int i = 0; i < number2 - 1; i++) {
                 result *= number1;
             }
         } else {
