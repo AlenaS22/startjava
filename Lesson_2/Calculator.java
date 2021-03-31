@@ -36,7 +36,7 @@ public class Calculator {
         this.operation = operation;
     }
 
-    public void calculation() {
+    public void calculate() {
         //обнуление result для случаев, когда введен некорректный знак
         result = 0;
         switch(operation) {

@@ -15,7 +15,7 @@ public class CalculatorTest {
             calculator.setNumber2(scanner.nextInt());
             //дочитывает строку до конца после метода nextInt(), для правильной работы answer = scanner.nextLine();
             scanner.nextLine();
-            calculator.calculation();
+            calculator.calculate();
             System.out.println("Результат: " + calculator.getResult());
             System.out.println("Хотите продолжить вычисления? [yes/no]: ");
             answer = scanner.nextLine();
