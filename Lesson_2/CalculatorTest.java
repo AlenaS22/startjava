@@ -16,11 +16,10 @@ public class CalculatorTest {
             //дочитывает строку до конца после метода nextInt(), для правильной работы answer = scanner.nextLine();
             scanner.nextLine();
             System.out.println("Результат: " + calculator.calculate());
-            answer = "";
-            while (!answer.equals("yes") && !answer.equals("no")) {
+            do {
                 System.out.println("Хотите продолжить вычисления? [yes/no]: ");
                 answer = scanner.nextLine();
-            }
+            } while (!answer.equals("yes") && !answer.equals("no"));
         } while(answer.equals("yes"));
     }
 }
