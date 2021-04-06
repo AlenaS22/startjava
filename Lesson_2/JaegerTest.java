@@ -5,6 +5,7 @@ public class JaegerTest {
         Jaeger gipsyDanger = new Jaeger("Gipsy Danger", "Mark-3", "USA", 79.25f, 1.98f, 7, 8, 6);
         Jaeger chernoAlpha = new Jaeger("Cherno Alpha", "Mark-1", "Russia", 85.34f, 2.412f, 3, 10, 10);
         Scanner scanner = new Scanner(System.in);
+        
         // Jaeger 1
         /* gipsyDanger.setModelName("Gipsy Danger");
         gipsyDanger.setMark("Mark-3");

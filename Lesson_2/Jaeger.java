@@ -7,6 +7,7 @@ public class Jaeger {
     private int speed;
     private int strength;
     private int armor;
+    
     // конструктор
     public Jaeger(String modelName, String mark, String origin, float height, float weight, int speed, int strength, int armor) {
         this.modelName = modelName;
@@ -82,6 +83,7 @@ public class Jaeger {
     public void setArmor(int armor) {
         this.armor = armor;
     }
+    
     // функции Jaegers
     public String drift() {
         return "drifting";
