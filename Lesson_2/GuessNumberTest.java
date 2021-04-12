@@ -13,10 +13,9 @@ public class GuessNumberTest {
         
         do {
             guessNumber.play();
-            guessNumber.scanner.nextLine();
             do {
                 System.out.println("Хотите продолжить игру? [yes/no]");
-                answer = guessNumber.scanner.nextLine();
+                answer = scanner.nextLine();
             } while(!answer.equals("yes") && !answer.equals("no"));
         } while(answer.equals("yes"));
     }
