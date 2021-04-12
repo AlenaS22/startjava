@@ -9,7 +9,15 @@ public class GuessNumberTest {
         Player player2 = new Player(scanner.nextLine());
         // созданных игроков передавайте в игру через ее конструктор и присвойте двум полям типа Player
         GuessNumber guessNumber = new GuessNumber(player1, player2);
-
-        guessNumber.play();
+        String answer;
+        
+        do {
+            guessNumber.play();
+            guessNumber.scanner.nextLine();
+            do {
+                System.out.println("Хотите продолжить игру? [yes/no]");
+                answer = guessNumber.scanner.nextLine();
+            } while(!answer.equals("yes") && !answer.equals("no"));
+        } while(answer.equals("yes"));
     }
 }
