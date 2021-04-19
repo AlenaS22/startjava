@@ -18,7 +18,6 @@ public class Calculator {
     }
 
     public double calculate() {
-        //обнуление result для случаев, когда введен некорректный знак
         double result = 0;
         switch(operation) {
             case '+':
