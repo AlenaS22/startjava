@@ -39,7 +39,7 @@ public class Calculator {
                 result = number1 % number2;
                 break;
             default:
-                System.out.println("Введен некорректный знак!");
+                System.out.println("Внимание! Введен некорректный знак!");
                 break;
         }
         return result;
