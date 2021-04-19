@@ -1,9 +1,8 @@
-package com.startjava.lesson_2_3.calculator;
+package com.startjava.lesson_2_3_4.calculator;
 
 public class Calculator {
     private int number1;
     private int number2;
-    private double result;
     private char operation;
 
     public void setNumber1(int number1) {
@@ -20,7 +19,7 @@ public class Calculator {
 
     public double calculate() {
         //обнуление result для случаев, когда введен некорректный знак
-        result = 0;
+        double result = 0;
         switch(operation) {
             case '+':
                 result = number1 + number2;
@@ -35,10 +34,7 @@ public class Calculator {
                 result = 1.0 * number1 / number2;
                 break;
             case '^':
-                result = number1;
-                for(int i = 0; i < number2 - 1; i++) {
-                result *= number1;
-                }
+                result = Math.pow(number1, number2);
                 break;
             case '%':
                 result = number1 % number2;
