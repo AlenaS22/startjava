@@ -18,7 +18,7 @@ public class GuessNumber {
 
     public void play() {
         System.out.println("Игра начинается... У каждого игрока по 10 попыток.");
-        secretNumber = 5; //random.nextInt(100) + 1;
+        secretNumber = random.nextInt(100) + 1;
         // проверяем, если игра запущена повторно (в массиве Игрока 1 есть как минимум одно ненулевое значение)
         if(player1.selectNumber(0) != 0) {
             Arrays.fill(player1.getNumbers(), 0, countNotZero(player1), 0);
