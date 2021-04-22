@@ -60,7 +60,7 @@ public class GuessNumber {
         return false;
     }
 
-    // метод для подсчета ненлевых чисел в массиве
+    // метод для подсчета ненулевых чисел в массиве
     private int countNotZero(Player player) {
         int i = 0;
         while(i < 10) {
@@ -72,6 +72,7 @@ public class GuessNumber {
     return i;
     }
 
+    // метод для вывода чисел из массива
     private void printNumbers(Player player, int length) {
         int[] copyNumbers = Arrays.copyOf(player.getNumbers(), length);
         for(int number: copyNumbers) {
