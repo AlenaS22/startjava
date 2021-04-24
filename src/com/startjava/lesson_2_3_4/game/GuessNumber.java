@@ -19,12 +19,10 @@ public class GuessNumber {
     public void play() {
         System.out.println("Игра начинается... У каждого игрока по 10 попыток.");
         secretNumber = random.nextInt(100) + 1;
-        // проверяем, если игра запущена повторно (в массиве Игрока 1 есть как минимум одно ненулевое значение)
-        if(player1.selectNumber(0) != 0) {
-            Arrays.fill(player1.getNumbers(), 0, countNotZero(player1), 0);
-            Arrays.fill(player2.getNumbers(), 0, countNotZero(player2), 0);
-        }
-        for (int i = 0; i < 10; i++) {
+        // подготовка массивов, если игра запущена повторно
+        prepareNumbers();
+        int i;
+        for (i = 0; i < 10; i++) {
             inputNumber(player1, i);
             if (compareNumbers(player1, i)) {
                 break;
@@ -33,10 +31,23 @@ public class GuessNumber {
             if (compareNumbers(player2, i)) {
                 break;
             }
+            if (i == 9) {
+                break;
+            }
         }
         // печатаем только ненулевые значения
-        printNumbers(player1, countNotZero(player1));
-        printNumbers(player2, countNotZero(player2));
+        // вместо countNotZero использовать i из for
+        int j = player2.getLastNumber(i) == 0 ? i : i + 1;
+        printNumbers(player1, i + 1);
+        printNumbers(player2, j);
+    }
+
+    private void prepareNumbers() {
+        // при повторном запуске в массиве Игрока 1 есть как минимум одно число
+        if (player1.getLastNumber(0) != 0) {
+            player1.clearNumbers();
+            player2.clearNumbers();
+        }
     }
 
     private void inputNumber(Player player, int index) {
@@ -45,37 +56,23 @@ public class GuessNumber {
     }
 
     private boolean compareNumbers(Player player, int index) {
-        if(player.selectNumber(index) == secretNumber) {
+        if (player.getLastNumber(index) == secretNumber) {
             System.out.println("Игрок " + player.getName() + " угадал число " + secretNumber + " с " + (index + 1) + " попытки.");
             return true;
         }
-        if(player.selectNumber(index) < secretNumber) {
-            System.out.println("Введенное число " + player.selectNumber(index) + " меньше того, что загадал компьютер.");
-        } else {
-            System.out.println("Введенное число " + player.selectNumber(index) + " больше того, что загадал компьютер.");
-        }
-        if(index == 9) {
+        // в методе для проверки чисел для веток с проверкой > и < использовать тернарный оператор
+        String sign = player.getLastNumber(index) < secretNumber ? " меньше " : " больше ";
+        System.out.println("Введенное число " + player.getLastNumber(index) + sign + "того, что загадал компьютер.");
+        if (index == 9) {
             System.out.println("У игрока " + player.getName() + " закончились попытки");
         }
         return false;
     }
 
-    // метод для подсчета ненулевых чисел в массиве
-    private int countNotZero(Player player) {
-        int i = 0;
-        while(i < 10) {
-            if (player.selectNumber(i) == 0) {
-                break;
-            }
-            i++;
-        }
-    return i;
-    }
-
     // метод для вывода чисел из массива
     private void printNumbers(Player player, int length) {
         int[] copyNumbers = Arrays.copyOf(player.getNumbers(), length);
-        for(int number: copyNumbers) {
+        for (int number: copyNumbers) {
             System.out.print(number + " ");
         }
         System.out.println();
