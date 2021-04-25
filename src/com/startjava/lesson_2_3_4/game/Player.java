@@ -5,6 +5,7 @@ import java.util.Arrays;
 public class Player {
     private final String name;
     private final int[] numbers = new int[10];
+    private int sizeNumbers;
 
     public Player(String name) {
         this.name = name;
@@ -16,12 +17,13 @@ public class Player {
 
     // getNumbers() не должен возвращать ссылку на оригинальный массив
     public int[] getNumbers() {
-        return Arrays.copyOf(numbers, 10);
+        //  copyOf возвращает только введенные игроком числа
+        return Arrays.copyOf(numbers, sizeNumbers);
     }
 
     // метод для добавления числа в массив
-    public void insertNumber(int number, int index) {
-        numbers[index] = number;
+    public void setNumber(int number) {
+        numbers[sizeNumbers++] = number;
     }
 
     // метод для извлечения числа из массива
@@ -29,15 +31,9 @@ public class Player {
         return numbers[index];
     }
 
-    // метод для обнуления введенных чисел в массиве
+    // метод для обнуления введенных чисел в массиве и sizeNumbers
     public void clearNumbers() {
-        int toIndex = 0;
-        while (numbers[toIndex] != 0) {
-            if (toIndex == 9) {
-                break;
-            }
-            toIndex++;
-        }
-        Arrays.fill(numbers, 0, toIndex, 0);
+        Arrays.fill(numbers, 0, sizeNumbers, 0);
+        sizeNumbers = 0;
     }
 }

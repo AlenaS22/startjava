@@ -2,7 +2,6 @@ package com.startjava.lesson_2_3_4.game;
 
 import java.util.Random;
 import java.util.Scanner;
-import java.util.Arrays;
 
 public class GuessNumber {
     Random random = new Random();
@@ -23,11 +22,11 @@ public class GuessNumber {
         prepareNumbers();
         int i;
         for (i = 0; i < 10; i++) {
-            inputNumber(player1, i);
+            inputNumber(player1);
             if (compareNumbers(player1, i)) {
                 break;
             }
-            inputNumber(player2, i);
+            inputNumber(player2);
             if (compareNumbers(player2, i)) {
                 break;
             }
@@ -36,10 +35,8 @@ public class GuessNumber {
             }
         }
         // печатаем только ненулевые значения
-        // вместо countNotZero использовать i из for
-        int j = player2.getLastNumber(i) == 0 ? i : i + 1;
-        printNumbers(player1, i + 1);
-        printNumbers(player2, j);
+        printNumbers(player1);
+        printNumbers(player2);
     }
 
     private void prepareNumbers() {
@@ -50,9 +47,9 @@ public class GuessNumber {
         }
     }
 
-    private void inputNumber(Player player, int index) {
+    private void inputNumber(Player player) {
         System.out.println('\n' + player.getName() + ", введите число от 1 до 100");
-        player.insertNumber(scanner.nextInt(), index);
+        player.setNumber(scanner.nextInt());
     }
 
     private boolean compareNumbers(Player player, int index) {
@@ -70,9 +67,9 @@ public class GuessNumber {
     }
 
     // метод для вывода чисел из массива
-    private void printNumbers(Player player, int length) {
-        int[] copyNumbers = Arrays.copyOf(player.getNumbers(), length);
-        for (int number: copyNumbers) {
+    private void printNumbers(Player player) {
+        int[] copyNumbers = player.getNumbers();
+        for (int number : copyNumbers) {
             System.out.print(number + " ");
         }
         System.out.println();
